@@ -1,0 +1,28 @@
+Given two arrays of numbers, write a JavaScript function to find and return an array containing all the elements that appear in both arrays. If an element appears multiple times in both arrays, include it in the result array as many times as its minimum frequency of occurrence in either array.
+
+function findCommonElements(arr1, arr2) {
+  const frequencyCounter1 = {};
+  const frequencyCounter2 = {};
+  const commonElements = []; // Array to store common elements
+
+  for (let val of arr1) {
+    frequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1;
+  }
+  for (let val of arr2) {
+    frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1;
+  }
+
+  for (let key in frequencyCounter1) {
+    if (key in frequencyCounter2) {
+      // Repeat the common element based on its minimum frequency
+      const minFrequency = Math.min(frequencyCounter1[key], frequencyCounter2[key]);
+      for (let i = 0; i < minFrequency; i++) {
+        commonElements.push(Number(key)); // Convert key back to number
+      }
+    }
+  }
+
+  return commonElements;
+}
+
+The findCommonElements function efficiently identifies common elements between two arrays. It first counts how many times each element appears in each array. Then, for each element found in both arrays, it determines the minimum number of occurrences across the arrays. The function returns an array containing these common elements, repeated according to their minimum frequency.
