@@ -1,0 +1,27 @@
+Given a sorted array of integers (in ascending or descending order), write a JavaScript function that returns a new array containing the squares of the original integers, sorted in ascending order. Optimize for efficiency.
+
+function sortedSquares(nums) {
+  const result = new Array(nums.length); // result = [ , , , , ] 
+  let left = 0; // left --> -4
+  let right = nums.length - 1; // right --> 10
+  let index = nums.length - 1; // index --> 4 (last position)
+
+  while (left <= right) {
+    const leftAbs = Math.abs(nums[left]); // leftAbs = 4
+    const rightAbs = Math.abs(nums[right]); // rightAbs = 10
+
+    if (leftAbs > rightAbs) { 
+      result[index--] = leftAbs * leftAbs; // result = [ , , , , 16]
+      left++; // left --> -1
+    } else {
+      result[index--] = rightAbs * rightAbs; // result = [ , , , 100, 16]
+      right--; // right --> 3
+    }
+  }
+
+  return result;
+}
+
+
+
+This function efficiently squares a sorted array of integers and returns the results in ascending order. It uses two pointers, one starting at each end of the array. In each step, it compares the absolute values of the elements at the pointers, squares the larger one, and places it at the end of a new array.  The pointers then move inward, repeating this process until they meet. This approach eliminates the need for explicit sorting, resulting in faster execution.
