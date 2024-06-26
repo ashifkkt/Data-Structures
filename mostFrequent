@@ -1,0 +1,23 @@
+Given an array of elements, write a JavaScript function that returns the most frequent element in the array. If the array is empty, return false.
+
+function mostFrequent(arr){
+    let counter={};
+    let mostFreq=arr[0];
+    let maxFreq=1;
+    if(arr.length ===0){
+        return false
+    }
+    for (let val of arr){
+        counter[val]=(counter[val] || 0) +1;
+        if(counter[val] > maxFreq){
+            counter[val]=maxFreq;
+            mostFreq=val
+        }
+    }
+    return mostFreq
+    
+}
+
+
+
+The mostFrequent function efficiently determines the element that appears most often within an array. It does this by counting occurrences of each element using an object (counter).  If the array is empty, it returns false. Otherwise, it iterates through the array, updates the count for each element, and keeps track of the element with the highest frequency seen so far. Finally, it returns this most frequent element.
