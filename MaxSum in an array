@@ -1,0 +1,30 @@
+Write a JavaScript function named maxSumArray that takes two arguments:
+
+arr: An array of integers.
+num: The size of a contiguous subarray (window) within arr.
+The function should find the maximum sum of any contiguous subarray of length num in the given array arr. If the length of arr is less than num, the function should return null.
+
+Example
+JavaScript
+maxSumArray([2, 6, 9, 2, 1, 8, 5, 6, 3], 3); // Output: 19 
+// The maximum sum of a subarray of length 3 is 19 ([5, 6, 8]).
+
+
+function maxSumArray(arr,num){
+    if(arr.length < num){
+        return null;
+    }
+    let maxSum=0;
+    let tempSum=0;
+   
+   for (let i=0;i <num;i++){
+       maxSum += arr[i];
+   } 
+    tempSum=maxSum;
+
+    for (let i=num;i< arr.length;i++){
+        tempSum=tempSum -arr[i-num]+arr[i];
+        maxSum=Math.max(tempSum,maxSum);
+    }
+    return maxSum
+}
