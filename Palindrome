@@ -1,0 +1,31 @@
+Write a JavaScript function that determines if a given input string is a palindrome (reads the same forwards and backward), ignoring case and non-alphanumeric characters. If the input is not a string, the function should throw an appropriate error.
+
+
+
+function isPalindrome(input) {
+  if (typeof input !== 'string') {
+    throw new TypeError('Input must be a string'); // Throw an error for clarity
+  }
+
+  const str = input.toLowerCase().replace(/[^a-z0-9]/g, '');
+  
+  if (str.length === 0) {
+    return true;  
+  }
+
+  let left = 0;
+  let right = str.length - 1;
+
+  while (left < right) {
+    if (str[left] !== str[right]) { 
+      return false;
+    }
+    left++;
+    right--;
+  }
+
+  return true; 
+}
+
+
+The isPalindrome function quickly checks if a string is a palindrome (reads the same forwards and backward). It first verifies the input is a string. Then, it converts the string to lowercase and removes non-alphanumeric characters.  Using two pointers, one starting at the beginning and the other at the end, it compares characters. If any pair of characters doesn't match, it's not a palindrome. If all pairs match, it is. Empty strings are also considered palindromes.
