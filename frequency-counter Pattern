@@ -1,9 +1,9 @@
-Frequency Counter Pattern Problem
+// Frequency Counter Pattern Problem
 
-write a function called same.which accept two arrays.The Function should return true if every value in the array has squared value in second array.Frquency of values must be same??
-same([1,2,3],[1,9,4])  == true;
-same([1,2,3],[1,9,1])  == false;
-same([1,2,1],[1,4,4])  == false;
+// write a function called same.which accept two arrays.The Function should return true if every value in the array has squared value in second array.Frquency of values must be same??
+// same([1,2,3],[1,9,4])  == true;
+// same([1,2,3],[1,9,1])  == false;
+// same([1,2,1],[1,4,4])  == false;
 
 
 
