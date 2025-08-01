@@ -1,19 +1,20 @@
-function checkDifference(arr,val){
-    let left=0;
-    let right=arr.length -1;
-    for( left;left<arr.length;left++){
-        console.log(arr[left],arr[right])
-        if(arr[left] - arr[right] === val || arr[right] - arr[left] === val ){
-            return true
-        }
-        else {
-          
-            right --;
-        }
-    }
+function findPair(nums,pair){
+   let freqCounter= {};
+   
+   for (let num of nums){
+      freqCounter[num]=(freqCounter[num] || 0)+1
+   }
+   for (let key in freqCounter){
       
-    return false
+      
+
+      
+   }
+   
+return false
+
 }
 
 
-console.log(checkDifference([0,1,3,4,6],-2))
+
+console.log(findPair([4,-2,3,10],-6))
